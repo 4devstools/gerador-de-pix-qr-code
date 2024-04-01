@@ -1252,26 +1252,29 @@ overflow: hidden;
 
 
 
+Peço desculpas pela confusão. Aqui está apenas o código necessário para o botão de compra via WhatsApp:
+
+```html
 <div class="boxWhats">
   <a id="download" href="https://wa.link/gavqz3" class="boxWhats-botao">
-    <span class="boxWhats-img"><img src="./img/whatsapp-logo.svg"></span>
+    <span class="boxWhats-img"><img src="./img/whatsapp-logo.svg" alt="WhatsApp Logo"></span>
     <span class="boxWhats-txt">COMPRE<br>Pelo Whatsapp</span>
   </a>
-
 </div>
-<script>$("#download").click(function (e) {
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $("#download").click(function (e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    window.location.href = url;
+  });
+});
+</script>
+```
 
-
-
-
-    e.preventDefault(); //cancel the link click
-    var url = $(this).attr('href');//get the destination url of the link
-gtag('event','click', { 'event_category':"Whatsapp", 'event_label':"" });
-
-    //go to the original destination url after a delay
-    setTimeout(function () { window.location.href = url; }, 150);
-});</script>
+Certifique-se de substituir `./img/whatsapp-logo.svg` pelo caminho correto para a imagem do logo do WhatsApp, se necessário. Este código não inclui mais a parte do `<!DOCTYPE html>` e assume que você já tem a estrutura HTML em seu site.
 
 
 
